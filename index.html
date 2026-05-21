@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canvio – Infinite Canvas & Notes</title>
+  <meta name="description" content="Canvio is an infinite canvas app for iPhone, iPad, and Mac. Take notes, sketch, organize ideas, add PDFs, audio, todos and more — all in one space." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f9f9fb;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+    /* NAV */
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #e8e8f0;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 22px; font-weight: 700;
+      color: #5b5fc7; text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex; gap: 28px;
+    }
+    nav ul a {
+      text-decoration: none;
+      color: #555; font-size: 15px;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: #5b5fc7; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 72px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-block;
+      background: #ededfa;
+      color: #5b5fc7;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+      letter-spacing: 0.3px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: #5b5fc7; }
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      max-width: 540px;
+      margin: 0 auto 36px;
+    }
+    .cta-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #5b5fc7; color: #fff;
+      padding: 14px 28px; border-radius: 50px;
+      text-decoration: none; font-weight: 600; font-size: 16px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #4a4eb8; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: #1a1a2e;
+      border: 1.5px solid #ddd;
+      padding: 14px 28px; border-radius: 50px;
+      text-decoration: none; font-weight: 600; font-size: 16px;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: #5b5fc7; color: #5b5fc7; }
+
+    /* FEATURES */
+    .section { padding: 72px 24px; }
+    .section-inner { max-width: 1040px; margin: 0 auto; }
+    .section-label {
+      text-align: center;
+      font-size: 13px; font-weight: 700;
+      color: #5b5fc7; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .section h2 {
+      text-align: center;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800; letter-spacing: -0.8px;
+      margin-bottom: 48px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: #fff;
+      border: 1px solid #e8e8f0;
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: box-shadow 0.2s;
+    }
+    .feature-card:hover { box-shadow: 0 4px 24px rgba(91,95,199,0.10); }
+    .feature-icon {
+      font-size: 28px; margin-bottom: 14px;
+      width: 52px; height: 52px;
+      background: #ededfa; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .feature-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: #666; line-height: 1.6; }
+
+    /* PLATFORMS */
+    .platforms {
+      background: linear-gradient(135deg, #5b5fc7 0%, #7c7ff0 100%);
+      padding: 64px 24px;
+      text-align: center;
+      color: #fff;
+    }
+    .platforms h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
+    .platforms p { font-size: 17px; opacity: 0.85; margin-bottom: 32px; }
+    .platform-badges { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .platform-badge {
+      background: rgba(255,255,255,0.15);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-radius: 12px;
+      padding: 12px 24px;
+      font-size: 15px; font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #fff;
+      border-top: 1px solid #e8e8f0;
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+    }
+    footer .footer-links {
+      display: flex; gap: 24px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 14px;
+    }
+    footer a { color: #5b5fc7; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media(max-width:600px){
+      nav ul { gap: 16px; }
+      .hero { padding: 56px 16px 56px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="index.html">Canvio</a>
+    <ul>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Available on iPhone · iPad · Mac</div>
+    <h1>Your ideas deserve an<br><span>infinite canvas</span></h1>
+    <p>Canvio is a visual workspace where you can write, draw, sketch, organize, and connect everything — notes, PDFs, images, audio, todos — all in one space.</p>
+    <div class="cta-group">
+      <a class="btn-primary" href="#">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on App Store
+      </a>
+      <a class="btn-secondary" href="contact.html">Contact Support</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" style="background:#fff;">
+    <div class="section-inner">
+      <p class="section-label">Features</p>
+      <h2>Everything you need, all in one canvas</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">∞</div>
+          <h3>Infinite Canvas</h3>
+          <p>Pan, zoom, and organize freely without page limits. Fixed sizes like A4, Letter, and iPad are also available.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✏️</div>
+          <h3>Drawing & Sketching</h3>
+          <p>Draw freely anywhere on the canvas with Apple Pencil or your finger. Card-style drawing boards also supported.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>Text & Sticky Notes</h3>
+          <p>Add rich text with custom fonts and colors. Sticky notes with list styles keep quick thoughts organized.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <h3>Todo Lists</h3>
+          <p>Create task lists with subtasks, priorities, and due dates directly on your canvas.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📄</div>
+          <h3>PDF & Images</h3>
+          <p>Import PDFs and images directly onto your canvas. View PDFs in a full reader without leaving the app.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎵</div>
+          <h3>Audio Recording</h3>
+          <p>Record voice notes or import audio files and place them anywhere on your canvas.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>Connectors</h3>
+          <p>Draw connections between any elements to build mind maps, flowcharts, and concept diagrams.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">☁️</div>
+          <h3>Cloud Sync</h3>
+          <p>Sign in with Apple to sync all your canvases across iPhone, iPad, and Mac automatically.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📤</div>
+          <h3>Export to PNG</h3>
+          <p>Export any canvas as a high-resolution PNG image to share or save.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORMS -->
+  <section class="platforms">
+    <h2>Works across all your Apple devices</h2>
+    <p>One account. All your canvases. Always in sync.</p>
+    <div class="platform-badges">
+      <div class="platform-badge">📱 iPhone</div>
+      <div class="platform-badge">📲 iPad</div>
+      <div class="platform-badge">💻 Mac</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>© 2025 Aftab Fazal Qayum. All rights reserved. Canvio is not affiliated with Apple Inc.</p>
+  </footer>
+</body>
+</html>

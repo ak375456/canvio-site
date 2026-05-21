@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Canvio</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f9f9fb;
+      color: #1a1a2e;
+      line-height: 1.75;
+      padding: 0 16px 64px;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e8e8f0;
+      padding: 20px 0;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    header a {
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 700;
+      color: #5b5fc7;
+      letter-spacing: -0.5px;
+    }
+    .container { max-width: 580px; margin: 0 auto; }
+    .card {
+      background: #fff;
+      border: 1px solid #e8e8f0;
+      border-radius: 14px;
+      padding: 40px 36px;
+      text-align: center;
+    }
+    .icon {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, #5b5fc7, #7c7ff0);
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 28px;
+    }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 10px; }
+    p { color: #3a3a4e; margin-bottom: 14px; }
+    .email-btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 14px 36px;
+      background: #5b5fc7;
+      color: #fff;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: background 0.2s;
+    }
+    .email-btn:hover { background: #4a4eb8; }
+    .divider {
+      border: none;
+      border-top: 1px solid #e8e8f0;
+      margin: 32px 0;
+    }
+    .topics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      text-align: left;
+      margin-bottom: 8px;
+    }
+    .topic {
+      background: #f4f4fb;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 14px;
+      color: #3a3a4e;
+    }
+    .topic strong { display: block; margin-bottom: 3px; color: #1a1a2e; font-size: 15px; }
+    .note { font-size: 13px; color: #aaa; margin-top: 20px; }
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 13px;
+      color: #aaa;
+    }
+    footer a { color: #5b5fc7; text-decoration: none; }
+    @media(max-width:500px){
+      .topics { grid-template-columns: 1fr; }
+      .card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">Canvio</a>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <div class="icon">✉️</div>
+      <h1>Get in Touch</h1>
+      <p>I'm a solo developer and I read every email personally. Whether you have a bug report, feature request, or a question about your account — I'm here.</p>
+
+      <a class="email-btn" href="mailto:ak375456@gmail.com">ak375456@gmail.com</a>
+
+      <hr class="divider" />
+
+      <p style="font-weight:600; text-align:left; margin-bottom:16px;">What can I help you with?</p>
+      <div class="topics">
+        <div class="topic">
+          <strong>🐛 Bug Report</strong>
+          Something not working? Let me know the device, iOS version, and steps to reproduce.
+        </div>
+        <div class="topic">
+          <strong>💡 Feature Request</strong>
+          Have an idea to make Canvio better? I'd love to hear it.
+        </div>
+        <div class="topic">
+          <strong>🔐 Privacy & Data</strong>
+          Questions about your data, account deletion, or a GDPR/data request.
+        </div>
+        <div class="topic">
+          <strong>💳 Billing / Refund</strong>
+          For App Store purchase issues, contact Apple Support directly. I don't process payments.
+        </div>
+      </div>
+
+      <p class="note">I typically respond within 1–2 business days.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      <a href="index.html">Home</a> &nbsp;·&nbsp;
+      <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp;
+      <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="contact.html">Contact</a>
+    </p>
+    <p style="margin-top:8px;">© 2025 Aftab Fazal Qayum. All rights reserved.</p>
+  </footer>
+</body>
+</html>
